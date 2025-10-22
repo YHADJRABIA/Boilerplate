@@ -1,0 +1,16 @@
+.root {
+  cursor: pointer;
+  color: var(--color-accent);
+  animation: iconSwitch 0.3s ease-in-out;
+}
+
+@keyframes iconSwitch {
+  0% {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}

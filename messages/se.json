@@ -1,0 +1,36 @@
+{
+  "Metadata": {
+    "site_name": "YHR",
+    "prefix": "YHR |",
+    "keywords": "YHR",
+    "title": "Hem",
+    "description": "YHRs portfolio.",
+    "Homepage": {
+      "title": "Hem",
+      "description": "Yacine Hadj Rabias portfolio."
+    },
+    "NotFound": {
+      "title": "404",
+      "description": "Sidan hittades inte."
+    }
+  },
+  "NotFound": {
+    "title": "404",
+    "description": "Sidan hittades inte."
+  },
+  "HomePage": {
+    "title": "Yacine Hadj Rabia"
+  },
+  "Navigation": {
+    "about": "Om",
+    "stack": "Stack",
+    "projects": "Projekt",
+    "contact": "Kontakt"
+  },
+  "ThemeToggler": {
+    "theme": "Tema"
+  },
+  "Footer": {
+    "copyright": "© {currentYear} Yacine Hadj Rabia"
+  }
+}

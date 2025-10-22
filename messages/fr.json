@@ -1,0 +1,36 @@
+{
+  "Metadata": {
+    "site_name": "YHR",
+    "prefix": "YHR |",
+    "keywords": "YHR",
+    "title": "Page d'accueil",
+    "description": "Portfolio de YHR.",
+    "Homepage": {
+      "title": "Page d'accueil",
+      "description": "Portfolio de Yacine HADJ RABIA."
+    },
+    "NotFound": {
+      "title": "404",
+      "description": "Page non trouvée."
+    }
+  },
+  "NotFound": {
+    "title": "404",
+    "description": "Page non trouvée."
+  },
+  "HomePage": {
+    "title": "Yacine HADJ RABIA"
+  },
+  "Navigation": {
+    "about": "À propos",
+    "stack": "Stack",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "ThemeToggler": {
+    "theme": "Thème"
+  },
+  "Footer": {
+    "copyright": "© {currentYear} Yacine HADJ RABIA"
+  }
+}

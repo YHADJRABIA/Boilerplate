@@ -1,0 +1,36 @@
+{
+  "Metadata": {
+    "site_name": "YHR",
+    "prefix": "YHR |",
+    "keywords": "YHR",
+    "title": "Homepage",
+    "description": "YHR's portfolio.",
+    "Homepage": {
+      "title": "Homepage",
+      "description": "Yacine Hadj Rabia's portfolio."
+    },
+    "NotFound": {
+      "title": "404",
+      "description": "Page not found."
+    }
+  },
+  "NotFound": {
+    "title": "404",
+    "description": "Page not found."
+  },
+  "HomePage": {
+    "title": "Yacine Hadj Rabia"
+  },
+  "Navigation": {
+    "about": "About",
+    "stack": "Stack",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "ThemeToggler": {
+    "theme": "Theme"
+  },
+  "Footer": {
+    "copyright": "© {currentYear} Yacine Hadj Rabia"
+  }
+}

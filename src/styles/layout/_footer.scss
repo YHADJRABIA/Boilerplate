@@ -1,0 +1,6 @@
+footer {
+  @include flex(column, center, center, wrap);
+  background: var(--bg-header-footer);
+  min-height: var(--footer-height);
+  color: var(--text-inverse);
+}

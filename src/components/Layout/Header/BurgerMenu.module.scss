@@ -1,0 +1,27 @@
+.icon {
+  display: block;
+  cursor: pointer;
+  margin: 0 1rem;
+
+  & div {
+    width: 2rem;
+    height: 0.2rem;
+    margin: 0.5rem 0;
+    background-color: var(--text-inverse);
+    transition: all 0.3s ease;
+  }
+
+  @include hideOnLarge;
+}
+
+.toggled {
+  & .line:first-child {
+    transform: rotate(-45deg) translate(-4px, 6px);
+  }
+  & .line:nth-child(2) {
+    opacity: 0;
+  }
+  & .line:last-child {
+    transform: rotate(45deg) translate(-4px, -6px);
+  }
+}

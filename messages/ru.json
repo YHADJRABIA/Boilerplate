@@ -1,0 +1,36 @@
+{
+  "Metadata": {
+    "site_name": "YHR",
+    "prefix": "YHR |",
+    "keywords": "YHR",
+    "title": "Главная",
+    "description": "Портфолио YHR.",
+    "Homepage": {
+      "title": "Главная",
+      "description": "Портфолио Ясина Хадж Рабя."
+    },
+    "NotFound": {
+      "title": "404",
+      "description": "Страница не найдена."
+    }
+  },
+  "NotFound": {
+    "title": "404",
+    "description": "Страница не найдена."
+  },
+  "HomePage": {
+    "title": "Ясин Хадж Рабя"
+  },
+  "Navigation": {
+    "about": "Обо мне",
+    "stack": "Стек",
+    "projects": "Проекты",
+    "contact": "Контакты"
+  },
+  "ThemeToggler": {
+    "theme": "Тема"
+  },
+  "Footer": {
+    "copyright": "© {currentYear} Ясин Хадж Рабя"
+  }
+}

@@ -1,0 +1,11 @@
+.root {
+  padding: 3rem 2.5rem;
+  @include flex(column, center, center);
+  gap: 4rem;
+  background-color: var(--bg-header-footer);
+}
+
+.separator {
+  margin-bottom: -0.5rem;
+  height: 8rem;
+}

@@ -1,0 +1,23 @@
+.root {
+  @include flex(row, center, center);
+  gap: 4rem;
+
+  @include respond-to('medium') {
+    gap: 6rem;
+  }
+}
+
+.link {
+  @include flex(row, center, center);
+  transition: all 0.3s ease;
+  color: var(--text-inverse);
+
+  &:hover {
+    transform: scale(1.15);
+    color: var(--color-accent);
+  }
+}
+
+.icon {
+  font-size: clamp(2.4rem, 3vw, 2.8rem);
+}
