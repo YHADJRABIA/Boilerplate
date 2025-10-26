@@ -13,41 +13,40 @@ $breakpoints: (
     min-width: 1200px,
   ),
 );
+
 :root {
   // Layout
   --header-height: 6.3rem;
   --footer-height: 6rem;
-
-  // Typography
-  --font-body: 'Inter', Roboto, sans-serif;
-  --font-size-base: 1.6rem;
-  --line-height-base: 1.5;
+  --page-padding: 2rem;
+  --page-max-width: 120rem;
+  --container-max-width: 40rem;
 
   // Base Colors
   --color-primary: #0073e6;
   --color-primary-hover: #005bb3;
-  --color-accent: #ffc107;
+  --color-accent: #ffea00;
   --color-success: #28a745;
   --color-danger: #dc3545;
 
   // Neutral Palette
-  --neutral-100: #f8f9fa;
-  --neutral-200: #e9ecef;
-  --neutral-400: #adb5bd;
-  --neutral-600: #6c757d;
-  --neutral-800: #343a40;
-  --neutral-900: #212529;
+  --neutral-100: #fff;
+  --neutral-200: #f0f0f0;
+  --neutral-400: #a4a9b4;
+  --neutral-600: #333333;
+  --neutral-800: #1a1423;
+  --neutral-900: #0d0d0d;
 
   // Semantic - Light Theme
   --text-primary: var(--neutral-900);
-  --text-secondary: var(--neutral-600);
-  --text-inverse: #ffffff;
+  --text-secondary: var(--neutral-400);
+  --text-inverse: var(--neutral-100);
 
-  --bg-primary: #ffffff;
-  --bg-secondary: var(--neutral-100);
+  --bg-primary: var(--neutral-100);
+  --bg-secondary: #f4f4f4;
   --bg-header-footer: var(--neutral-900);
 
-  --border-color: var(--neutral-200);
+  --border-color: var(--neutral-border-primary);
 }
 
 :root[data-theme='light'] {
@@ -60,14 +59,11 @@ $breakpoints: (
   // Semantic - Dark Theme
   --text-primary: var(--neutral-200);
   --text-secondary: var(--neutral-400);
-  --text-inverse: #ffffff;
+  --text-inverse: var(--neutral-100);
 
-  --bg-primary: #1a1d23;
-  --bg-secondary: #252933;
+  --bg-primary: var(--neutral-900);
+  --bg-secondary: var(--neutral-800);
   --bg-header-footer: var(--neutral-900);
 
-  --color-primary: #4da6ff;
-  --color-primary-hover: #1a73e8;
-
-  --border-color: var(--neutral-600);
+  --border-color: var(--neutral-border-secondary);
 }
