@@ -1,3 +1,4 @@
+import Typography from '@/components/UI/Typography'
 import { Locale } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
@@ -10,8 +11,8 @@ export default async function HomePage({
 
   const t = await getTranslations({ locale, namespace: 'HomePage' })
   return (
-    <div>
-      <h1>{t('title')}</h1>
-    </div>
+    <>
+      <Typography tag="h1">{t('title')}</Typography>
+    </>
   )
 }
