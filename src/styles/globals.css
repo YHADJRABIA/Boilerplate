@@ -1,0 +1,366 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* CSS Variables */
+  :root {
+    /* Layout */
+    --header-height: 6.3rem;
+    --footer-height: 6rem;
+    --page-padding: 2rem;
+    --page-max-width: 120rem;
+    --container-max-width: 40rem;
+
+    /* Base Colors */
+    --color-primary: #0073e6;
+    --color-primary-hover: #005bb3;
+    --color-accent: #ffea00;
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+
+    /* Neutral Palette */
+    --neutral-100: #fff;
+    --neutral-200: #f0f0f0;
+    --neutral-400: #a4a9b4;
+    --neutral-600: #333333;
+    --neutral-800: #1a1423;
+    --neutral-900: #0d0d0d;
+
+    /* Semantic - Light Theme */
+    --text-primary: var(--neutral-900);
+    --text-secondary: var(--neutral-400);
+    --text-inverse: var(--neutral-100);
+
+    --bg-primary: var(--neutral-100);
+    --bg-secondary: #f4f4f4;
+    --bg-header-footer: var(--neutral-900);
+
+    --border-color: var(--neutral-border-primary);
+  }
+
+  :root[data-theme='light'] {
+    color-scheme: light;
+  }
+
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+
+    /* Semantic - Dark Theme */
+    --text-primary: var(--neutral-200);
+    --text-secondary: var(--neutral-400);
+    --text-inverse: var(--neutral-100);
+
+    --bg-primary: var(--neutral-900);
+    --bg-secondary: var(--neutral-800);
+    --bg-header-footer: var(--neutral-900);
+
+    --border-color: var(--neutral-border-secondary);
+  }
+
+  /* Reset styles */
+  html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px */
+    position: relative;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+  }
+
+  html,
+  body {
+    max-width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  svg {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* To distinguish CMS links from local ones */
+  a[href]:not([class]) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+  }
+
+  button,
+  input {
+    line-height: normal;
+  }
+
+  button,
+  html input[type='button'],
+  input[type='reset'],
+  input[type='submit'] {
+    -webkit-appearance: button;
+    appearance: button;
+    cursor: pointer;
+  }
+
+  button[disabled],
+  html input[disabled] {
+    cursor: default;
+  }
+
+  /* Typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-primary);
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 5vw, 3.6rem);
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: clamp(2.6rem, 4vw, 3rem);
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.25;
+  }
+
+  h5 {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    line-height: 1.3;
+  }
+
+  h6 {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    line-height: 1.35;
+  }
+
+  p {
+    margin: 0 0 1rem 0;
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  /* Animations */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(-2rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes iconSwitch {
+    0% {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+}
+
+@layer components {
+  /* Toastify vendor styles */
+  .Toastify {
+    position: absolute;
+    top: 0;
+  }
+
+  .Toastify__toast-body {
+    text-align: center;
+    align-items: flex-start;
+    font-size: 1.4rem;
+    font-family: inherit;
+  }
+}
+
+@layer utilities {
+  /* Custom utility classes */
+  .hidden-utility {
+    visibility: hidden;
+    transition: opacity 0.3s ease-in;
+    opacity: 0;
+  }
+
+  .visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .text-small {
+    font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+  }
+
+  .text-large {
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+  }
+
+  .text-xl-custom {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+  }
+
+  .text-2xl-custom {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+  }
+
+  .text-3xl-custom {
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+  }
+
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .truncate-custom {
+    width: fit-content;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .word-break {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+}

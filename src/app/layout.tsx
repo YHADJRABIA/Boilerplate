@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import '@/styles/main.scss'
+import '@/styles/globals.css'
 
 interface PropTypes {
   children: ReactNode
