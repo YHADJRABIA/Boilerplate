@@ -1,6 +1,5 @@
 import { IconType } from '@/types/icon'
 import Typography, { LinkType, TypographyPropTypes } from '../Typography'
-import styles from './Button.module.scss'
 import cn from 'classnames'
 
 interface LinkButtonPropTypes extends TypographyPropTypes {
@@ -26,18 +25,33 @@ export const LinkButton = ({
 }: LinkButtonPropTypes) => {
   const isPrimary = variation === 'primary'
   const Icon = icon?.src
+
+  const baseClasses =
+    'flex flex-row justify-center items-center flex-wrap border-none outline-none cursor-pointer tracking-wider transition-[opacity,border-color,box-shadow] duration-300 ease-in-out p-6 rounded-[0.8rem] sm:p-7 sm:items-normal'
+  const clickableClasses = isPrimary
+    ? 'hover:opacity-80 active:opacity-80'
+    : 'shadow-[0_0.1rem_0.1rem_rgba(0,0,0,0.1)] hover:shadow-[0.2rem_0.4rem_0.6rem_rgba(0,0,0,0.2)] active:shadow-[0.2rem_0.4rem_0.6rem_rgba(0,0,0,0.2)]'
+
+  const variationClasses = {
+    primary: 'text-bg-primary bg-primary',
+    secondary: 'text-text-primary bg-bg-primary border border-border',
+    regular:
+      'p-3 px-[1.15rem] rounded-[0.5rem] w-fit min-h-[3.8rem] bg-bg-primary border border-border hover:opacity-70',
+  }
+
+  const roundedClasses = isRounded ? 'rounded-full p-4 px-6' : ''
+
   return (
     <Typography
       {...rest}
       aria-pressed={isPrimary ? 'true' : 'false'}
       className={cn(
-        styles.root,
-        styles.linkButton,
-        styles[variation],
-        styles.clickable,
+        baseClasses,
+        clickableClasses,
+        variationClasses[variation],
+        roundedClasses,
         {
-          [styles.rounded]: isRounded,
-          fullWidth: isFullWidth,
+          'w-full': isFullWidth,
         },
         className
       )}
@@ -48,7 +62,7 @@ export const LinkButton = ({
       tabIndex={0}
     >
       {Icon && (
-        <span className={styles.icon}>
+        <span className="mr-4">
           <Icon color={icon.color} size={icon.size ?? 18} />
         </span>
       )}

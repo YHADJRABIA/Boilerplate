@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import styles from './Nav.module.scss'
 import cn from 'classnames'
 import { usePathname } from '@/i18n/routing'
 import BurgerMenu from '../BurgerMenu'
@@ -34,19 +33,25 @@ const Nav = ({ className }: PropTypes) => {
   }, [currentPath]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <nav aria-label="Main menu" className={cn(styles.root, className)}>
+    <nav aria-label="Main menu" className={cn(className)}>
       <BurgerMenu
-        className={styles.burgerMenu}
+        className="lg:hidden"
         setToggled={setToggled}
         toggled={toggled}
       />
 
-      <div className={cn(styles.menu, { [styles.toggled]: toggled })}>
-        <ul className={styles.links}>
+      <div
+        className={cn(
+          'flex flex-col justify-start items-center flex-wrap p-12 pt-12 pb-8 absolute overflow-hidden top-header left-[-120%] opacity-0 transition-all duration-500 ease-out w-full bg-bg-header-footer shadow-[0_3px_5px_0px_rgba(255,255,255,0.2),0_-3px_5px_0px_rgba(255,255,255,0.2)] [&>*]:w-full',
+          'lg:all-unset lg:box-border lg:flex lg:flex-row lg:justify-start lg:items-center lg:flex-wrap lg:gap-16',
+          { 'bg-bg-header-footer opacity-100 left-0': toggled }
+        )}
+      >
+        <ul className="flex flex-col justify-around items-start flex-wrap content-start gap-8 lg:flex-row">
           <NavLinks onActiveLinkClick={handleCloseNav} />
         </ul>
-        <Separator className={styles.separator} />
-        <div className={styles.bottomSection}>
+        <Separator className="lg:hidden" />
+        <div className="mt-auto flex flex-row justify-between items-center flex-wrap sm:gap-8">
           <LanguageMenu isInverted={!isOnDesktop} />
           <ThemeToggler
             isDarkTheme={isDarkTheme}

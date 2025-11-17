@@ -1,5 +1,4 @@
 import { ImSpinner2 } from 'react-icons/im'
-import styles from './Loader.module.scss'
 import cn from 'classnames'
 
 interface PropTypes {
@@ -10,7 +9,11 @@ interface PropTypes {
 const Loader = (props: PropTypes) => {
   const { size, className } = props
   return (
-    <ImSpinner2 {...props} className={cn(styles.root, className)} size={size} />
+    <ImSpinner2
+      {...props}
+      className={cn('animate-spin m-auto', className)}
+      size={size}
+    />
   )
 }
 

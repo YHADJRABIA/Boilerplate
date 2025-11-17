@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './Separator.module.scss'
 import cn from 'classnames'
 
 type PropTypes =
@@ -17,12 +16,28 @@ const Separator = ({
   className,
 }: PropTypes & { className?: string }) => {
   return label ? (
-    <div className={cn(styles.root, styles.labelSeparator, className)}>
-      <span>{label}</span>
+    <div
+      className={cn(
+        'my-6 w-full flex items-center text-text-primary opacity-60',
+        className
+      )}
+    >
+      <style jsx>{`
+        div::before,
+        div::after {
+          content: '';
+          flex-grow: 1;
+          background-color: var(--text-primary);
+          opacity: 0.6;
+          height: 1px;
+          margin: 0 0.8rem;
+        }
+      `}</style>
+      <span className="text-sm truncate-custom">{label}</span>
     </div>
   ) : (
     <hr
-      className={cn(styles.root, className)}
+      className={cn('my-6 w-full', className)}
       style={{ borderColor: color || undefined }}
     />
   )

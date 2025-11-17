@@ -14,13 +14,13 @@ module.exports = {
         lg: '1200px',
       },
       spacing: {
-        'header': 'var(--header-height)',
-        'footer': 'var(--footer-height)',
-        'page': 'var(--page-padding)',
+        header: 'var(--header-height)',
+        footer: 'var(--footer-height)',
+        page: 'var(--page-padding)',
       },
       maxWidth: {
-        'page': 'var(--page-max-width)',
-        'container': 'var(--container-max-width)',
+        page: 'var(--page-max-width)',
+        container: 'var(--container-max-width)',
       },
       colors: {
         primary: {

@@ -1,6 +1,5 @@
 'use client'
 import { ButtonHTMLAttributes, MouseEvent } from 'react'
-import styles from './Button.module.scss'
 import cn from 'classnames'
 import Loader from '../Loader'
 import Typography, { TypographyPropTypes } from '../Typography'
@@ -48,18 +47,40 @@ export const Button = ({
       }
     }
   }
+
+  const baseClasses =
+    'flex flex-row justify-center items-center flex-wrap border-none outline-none cursor-pointer tracking-wider transition-[opacity,border-color,box-shadow] duration-300 ease-in-out p-6 rounded-[0.8rem] sm:p-7'
+  const disabledClasses = isClickable
+    ? ''
+    : 'no-select cursor-not-allowed opacity-50'
+  const clickableClasses = isClickable
+    ? variation === 'primary'
+      ? 'hover:opacity-80 active:opacity-80'
+      : 'shadow-[0_0.1rem_0.1rem_rgba(0,0,0,0.1)] hover:shadow-[0.2rem_0.4rem_0.6rem_rgba(0,0,0,0.2)] active:shadow-[0.2rem_0.4rem_0.6rem_rgba(0,0,0,0.2)]'
+    : ''
+
+  const variationClasses = {
+    primary: 'text-bg-primary bg-primary',
+    secondary: 'text-text-primary bg-bg-primary border border-border',
+    regular:
+      'p-3 px-[1.15rem] rounded-[0.5rem] w-fit min-h-[3.8rem] bg-bg-primary border border-border hover:opacity-70',
+  }
+
+  const roundedClasses = isRounded ? 'rounded-full p-4 px-6' : ''
+
   return children ? (
     <Typography
       {...rest}
       aria-disabled={!isClickable}
       backgroundColor={backgroundColor}
       className={cn(
-        styles.root,
-        isClickable ? styles.clickable : styles.disabled,
-        styles[variation],
+        baseClasses,
+        disabledClasses,
+        clickableClasses,
+        variationClasses[variation],
+        roundedClasses,
         {
-          [styles.rounded]: isRounded,
-          fullWidth: isFullWidth,
+          'w-full': isFullWidth,
         },
         className
       )}
@@ -69,7 +90,11 @@ export const Button = ({
       tag={tag}
       onClick={handleClick}
     >
-      {isLoading ? <Loader className={styles.loader} /> : children}
+      {isLoading ? (
+        <Loader className="text-[clamp(1.8rem,3vw,2.2rem)]" />
+      ) : (
+        children
+      )}
     </Typography>
   ) : null
 }

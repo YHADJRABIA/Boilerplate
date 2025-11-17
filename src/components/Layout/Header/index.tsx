@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import styles from './Header.module.scss'
 import Nav from './Nav'
 import Logo from './Logo'
 import cn from 'classnames'
@@ -18,13 +17,16 @@ const Header = ({ className, isConcealable = false }: PropTypes) => {
 
   return (
     <header
-      className={cn(styles.root, className)}
+      className={cn(
+        'transition-transform duration-500 ease-in-out z-10 w-full sticky top-0 h-header flex flex-row justify-center items-center flex-wrap bg-bg-header-footer px-10 py-2',
+        className
+      )}
       style={
         isConcealable ? { transform: `translateY(${translateY()})` } : undefined
       }
     >
       <Logo size={50} />
-      <Nav className={styles.nav} />
+      <Nav className="ml-auto" />
     </header>
   )
 }

@@ -1,6 +1,5 @@
 import { SetStateAction, Dispatch } from 'react'
 import cn from 'classnames'
-import styles from './BurgerMenu.module.scss'
 import { useEventListener } from '@/hooks/useEventListener'
 import useLockBodyScroll from '@/hooks/useLockBodyScroll'
 
@@ -28,14 +27,35 @@ const BurgerMenu = ({ toggled, setToggled, className }: PropTypes) => {
     <div
       aria-controls="navigation"
       aria-label="Menu"
-      className={cn(styles.icon, { [styles.toggled]: toggled }, className)}
+      className={cn('block cursor-pointer mx-4', className)}
       data-testid="burger-menu"
       role="button"
       onClick={toggleMenu}
     >
-      {[1, 2, 3].map(i => (
-        <div className={cn(styles.line)} key={i}></div>
-      ))}
+      <div
+        className={cn(
+          'w-8 h-[2px] my-2 bg-text-inverse transition-all duration-300',
+          {
+            'rotate-[-45deg] translate-x-[-4px] translate-y-[6px]': toggled,
+          }
+        )}
+      ></div>
+      <div
+        className={cn(
+          'w-8 h-[2px] my-2 bg-text-inverse transition-all duration-300',
+          {
+            'opacity-0': toggled,
+          }
+        )}
+      ></div>
+      <div
+        className={cn(
+          'w-8 h-[2px] my-2 bg-text-inverse transition-all duration-300',
+          {
+            'rotate-[45deg] translate-x-[-4px] translate-y-[-6px]': toggled,
+          }
+        )}
+      ></div>
     </div>
   )
 }

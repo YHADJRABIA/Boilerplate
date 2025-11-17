@@ -2,7 +2,6 @@ import { useNow, useTranslations } from 'next-intl'
 import React from 'react'
 import Typography from '../../UI/Typography'
 import Socials from './Socials'
-import styles from './Footer.module.scss'
 import { DEFAULT_SOCIAL_LINKS } from '@/utils/constant'
 
 interface PropTypes {
@@ -12,7 +11,7 @@ interface PropTypes {
 const FooterSeparator = ({ color }: PropTypes) => {
   return (
     <svg
-      className={styles.separator}
+      className="mb-[-0.5rem] h-32"
       preserveAspectRatio="none"
       style={{ backgroundColor: color }}
       viewBox="0 0 100 80"
@@ -35,7 +34,7 @@ const Footer = () => {
   return (
     <>
       <FooterSeparator />
-      <footer className={styles.root}>
+      <footer className="p-12 px-10 flex flex-col justify-center items-center gap-16 bg-bg-header-footer">
         <Socials links={DEFAULT_SOCIAL_LINKS} />
         <Typography size="s" tag="small">
           {t('copyright', { currentYear })}

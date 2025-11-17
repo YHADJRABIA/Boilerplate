@@ -1,5 +1,4 @@
 import React, { HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
-import styles from './Typography.module.scss'
 import cn from 'classnames'
 import { Link } from '@/i18n/routing'
 import { UrlObject } from 'url'
@@ -46,6 +45,17 @@ const tagMap = {
   span: 'span',
 } as const
 
+const sizeClasses: Record<TextSize, string> = {
+  xxs: 'text-[clamp(1rem,2vw,1.2rem)]',
+  xs: 'text-[clamp(1.2rem,2.5vw,1.4rem)]',
+  s: 'text-[clamp(1.4rem,2.65vw,1.6rem)]',
+  m: 'text-[clamp(1.6rem,4.5vw,1.8rem)]',
+  l: 'text-[clamp(1.8rem,4.5vw,2rem)]',
+  xl: 'text-[clamp(2rem,4.5vw,2.4rem)]',
+  xxl: 'text-[clamp(2.4rem,6.5vw,3rem)]',
+  xxxl: 'text-[clamp(3rem,6.5vw,3.6rem)]',
+}
+
 const Typography = ({
   tag = 'p',
   weight = 'normal',
@@ -79,9 +89,9 @@ const Typography = ({
 
   const commonProps = {
     className: cn(
-      styles.root,
-      { isFullWidth, uppercase },
-      size && styles[size],
+      'word-break',
+      { 'w-full': isFullWidth, uppercase },
+      size && sizeClasses[size],
       className
     ),
     'data-testid': testId,

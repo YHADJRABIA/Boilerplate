@@ -1,5 +1,4 @@
 import { GrMoon as MoonIcon, GrSun as SunIcon } from 'react-icons/gr'
-import styles from './ThemeToggler.module.scss'
 
 interface PropTypes {
   isDarkTheme: boolean
@@ -12,7 +11,7 @@ const ThemeToggler = ({ isDarkTheme, onClick, title }: PropTypes) => {
 
   return (
     <Icon
-      className={styles.root}
+      className="cursor-pointer text-accent animate-icon-switch"
       data-testid="theme-toggler"
       size={28}
       title={title}
